@@ -1,8 +1,31 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html>
   <head>
-    <title>文本转图片</title>
-    <script src="index.js"></script>
+    <title>古哒哒研究所——腾讯AI绘画内测接口测试</title>
+    <script>
+      async function generateImage() {
+        const promptInput = document.getElementById('promptInput');
+        const resultImage = document.getElementById('resultImage');
+        const prompt = promptInput.value;
+
+        const response = await fetch('/api/generate-image', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ prompt })
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          const imageData = data.ResultImage;
+          resultImage.src = "data:image/jpeg;base64," + imageData;
+        } else {
+          console.error('Error', response.status);
+        }
+      }
+    </script>
   </head>
   <body>
     <input type="text" id="promptInput" placeholder="输入Prompt值">
