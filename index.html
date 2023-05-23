@@ -3,6 +3,67 @@
 <html>
   <head>
     <title>古哒哒研究所——腾讯AI绘画内测接口测试</title>
+    <style>
+      body {
+        background-color: #f1f1f1;
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+
+      .chat-container {
+        max-width: 500px;
+        margin: 0 auto;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .input-container {
+        width: 100%;
+        display: flex;
+        margin-top: 20px;
+      }
+
+      #promptInput {
+        flex-grow: 1;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-right: 10px;
+      }
+
+      #generateButton {
+        padding: 10px 20px;
+        border: none;
+        background-color: #4caf50;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      #resultImageContainer {
+        text-align: center;
+        width: 480px;
+        height: 480px;
+        aspect-ratio: 1/1;
+        overflow: hidden;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #resultImage {
+        max-width: 100%;
+        max-height: 100%;
+      }
+    </style>
     <script>
       async function generateImage() {
         const promptInput = document.getElementById('promptInput');
@@ -28,9 +89,15 @@
     </script>
   </head>
   <body>
-    <input type="text" id="promptInput" placeholder="输入Prompt值">
-    <button onclick="generateImage()">生成</button>
-    <br>
-    <img id="resultImage" src="" alt="生成的图片">
+    <div class="chat-container">
+      <h2>古哒哒研究所——腾讯AI绘画内测接口测试</h2>
+      <div id="resultImageContainer">
+        <img id="resultImage" src="" alt="生成的图片">
+      </div>
+      <div class="input-container">
+        <input type="text" id="promptInput" placeholder="输入Prompt值">
+        <button id="generateButton" onclick="generateImage()">发送</button>
+      </div>
+    </div>
   </body>
 </html>
