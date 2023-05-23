@@ -86,6 +86,12 @@
           console.error('Error', response.status);
         }
       }
+      function handleKeyDown(event) {
+        if (event.code === 'Enter' || event.keyCode === 13) {
+          event.preventDefault();
+          document.getElementById('generateButton').click();
+        }
+      }
     </script>
   </head>
   <body>
