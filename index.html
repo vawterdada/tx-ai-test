@@ -93,6 +93,12 @@
           document.getElementById('generateButton').click();
         }
       }
+      
+      function handleStyleChange() {
+        var styleSelect = document.getElementById('styleSelect');
+        var styleId = styleSelect.value;
+        // Do something with the selected styleId...
+      }
     </script>
   </head>
   <body>
@@ -103,6 +109,26 @@
       </div>
       <div class="input-container">
         <input type="text" id="promptInput" placeholder="输入Prompt值">
+        <select id="styleSelect" onchange="handleStyleChange()">
+          <option value="101">水墨画</option>
+          <option value="102">概念艺术</option>
+          <option value="103">油画</option>
+          <option value="104">水彩画</option>
+          <option value="106">厚涂风格</option>
+          <option value="107">插图</option>
+          <option value="108">剪纸风格</option>
+          <option value="109">印象派</option>
+          <option value="110">2.5D人像</option>
+          <option value="111">肖像画</option>
+          <option value="112">黑白素描画</option>
+          <option value="113">赛博朋克</option>
+          <option value="114">科幻风格</option>
+          <option value="115">黑暗艺术</option>
+          <option value="201">日系动漫</option>
+          <option value="202">怪兽风格</option>
+          <option value="301">游戏卡通手绘</option>
+          <option value="000">不限定风格</option>
+        </select>
         <button id="generateButton" onclick="generateImage()">发送</button>
       </div>
     </div>
