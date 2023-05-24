@@ -69,6 +69,8 @@
       async function generateImage() {
         const promptInput = document.getElementById('promptInput');
         const resultImage = document.getElementById('resultImage');
+        const styleSelect = document.getElementById('styleSelect');
+        const styleId = styleSelect.value;
         const prompt = promptInput.value;
 
         const response = await fetch('/api/generate-image', {
@@ -76,7 +78,7 @@
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ prompt })
+          body: JSON.stringify({ prompt, styleId })
         });
 
         if (response.ok) {
