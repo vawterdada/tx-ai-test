@@ -21,12 +21,13 @@ const client = new AiartClient(clientConfig);
 
 module.exports = async (req, res) => {
   try {
-    const { prompt } = req.body;
+    //const { prompt } = req.body;
+    const { prompt, styleId } = req.body;
 
     const params = {
       "Prompt": prompt,
       "Styles": [
-        "000"
+        styleId
       ],
       "LogoAdd": 0
     };
